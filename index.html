@@ -163,7 +163,7 @@ function setStatus(state,text){
 
 // ── Load from Gist ─────────────────────────────────────────────────────────
 async function loadFromGist(){
-  if(!GITHUB_TOKEN||GITHUB_TOKEN==='PASTE_YOUR_TOKEN_HERE'){setStatus('err','הגדר טוקן');rebuild();return;}
+  if(!GITHUB_TOKEN||GITHUB_TOKEN==='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'){setStatus('err','הגדר טוקן');rebuild();return;}
   setStatus('loading','טוען...');
   try{
     const res=await fetch(`https://api.github.com/gists/${GIST_ID}`,{headers:{'Authorization':`token ${GITHUB_TOKEN}`,'Accept':'application/vnd.github.v3+json'}});
