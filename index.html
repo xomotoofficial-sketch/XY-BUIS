@@ -110,7 +110,7 @@ tbody tr:hover td{background:rgba(59,130,246,.08) !important}
 
 <script>
 // ─── YOUR DETAILS ─────────────────────────────────────────────────────────
-const GITHUB_TOKEN = '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';
+const GITHUB_TOKEN = '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';
 const GIST_ID      = '1bbc51122f96d715afb2c952de255d9e';
 const GIST_FILE    = 'data.json';
 // ─────────────────────────────────────────────────────────────────────────
@@ -130,7 +130,7 @@ function setStatus(state,text){
 }
 
 async function loadFromGist(){
-  if(!GITHUB_TOKEN||GITHUB_TOKEN==='PASTE_YOUR_NEW_TOKEN_HERE'){setStatus('err','הגדר טוקן');rebuild();return;}
+  if(!GITHUB_TOKEN||GITHUB_TOKEN==='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'){setStatus('err','הגדר טוקן');rebuild();return;}
   setStatus('loading','טוען...');
   try{
     const res=await fetch('https://api.github.com/gists/'+GIST_ID,{headers:{'Authorization':'token '+GITHUB_TOKEN,'Accept':'application/vnd.github.v3+json'}});
