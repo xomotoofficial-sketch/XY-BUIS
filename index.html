@@ -1,15 +1,22 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>השוואת חברות קופות וקיוסק</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 html,body{height:100%;margin:0;padding:0;background:#0f172a}
 *{box-sizing:border-box;margin:0;padding:0}
-.app-bg{min-height:100vh;width:100%;background:#0f172a;padding:1.5rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);direction:rtl}
+.app-bg{min-height:100vh;width:100%;background:#0f172a;padding:1.5rem;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;direction:rtl}
 .app-window{width:100%;max-width:1280px;background:#1e293b;border-radius:16px;border:0.5px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,.4)}
 .titlebar{background:#162032;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid rgba(255,255,255,.07)}
 .traffic{display:flex;gap:6px}
 .dot{width:12px;height:12px;border-radius:50%}
 .d-r{background:#ff5f57}.d-y{background:#febc2e}.d-g{background:#28c840}
 .app-name{font-size:13px;color:rgba(255,255,255,.5);font-weight:500;letter-spacing:.3px}
-.toolbar-right{display:flex;gap:6px}
-.t-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:5px 10px;border-radius:6px;border:0.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);cursor:pointer;font-family:var(--font-sans);transition:all .15s}
+.toolbar-right{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.t-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:5px 10px;border-radius:6px;border:0.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);cursor:pointer;font-family:inherit;transition:all .15s}
 .t-btn:hover{background:rgba(255,255,255,.1);color:#fff}
 .t-btn:active{transform:scale(.97)}
 .t-btn-accent{background:#3b82f6;border-color:#3b82f6;color:#fff}
@@ -36,8 +43,7 @@ tbody tr:nth-child(odd) td{background:transparent}
 tbody tr:hover td{background:rgba(59,130,246,.08) !important}
 .co-cell{text-align:right;padding:0 8px 0 4px;font-size:12px;font-weight:500;color:#e2e8f0;background:rgba(255,255,255,.03) !important}
 .co-inner{display:flex;align-items:center;justify-content:space-between;gap:4px}
-.del-co{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.25);font-size:13px;padding:2px;line-height:1;opacity:0;transition:opacity .15s}
-.del-co{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.5);font-size:13px;padding:2px;line-height:1;transition:all .15s;opacity:1}
+.del-co{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.5);font-size:13px;padding:2px;line-height:1;transition:all .15s}
 .del-co:hover{color:#f87171}
 .val-td{text-align:center;padding:5px 4px}
 .vbtn{width:36px;height:28px;border-radius:6px;border:0.5px solid rgba(255,255,255,.1);cursor:pointer;font-size:15px;line-height:1;transition:all .12s;background:rgba(255,255,255,.05);color:rgba(255,255,255,.25)}
@@ -49,46 +55,12 @@ tbody tr:hover td{background:rgba(59,130,246,.08) !important}
 .add-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:180px}
 .add-lbl{font-size:11px;font-weight:500;color:rgba(255,255,255,.4);padding-right:2px}
 .add-row{display:flex;gap:6px}
-.add-row input{flex:1;font-size:13px;padding:7px 10px;border-radius:8px;border:0.5px solid rgba(255,255,255,.1);direction:rtl;font-family:var(--font-sans);background:rgba(255,255,255,.06);color:#f1f5f9}
+.add-row input{flex:1;font-size:13px;padding:7px 10px;border-radius:8px;border:0.5px solid rgba(255,255,255,.1);direction:rtl;font-family:inherit;background:rgba(255,255,255,.06);color:#f1f5f9}
 .add-row input::placeholder{color:rgba(255,255,255,.2)}
 .add-row input:focus{outline:none;border-color:rgba(59,130,246,.6);background:rgba(59,130,246,.06)}
 .counter{font-size:11px;color:rgba(255,255,255,.25);margin-top:8px;text-align:left}
-
-@media (max-width:800px) {
-  .app-bg{padding:1rem}
-  .app-window{border-radius:14px}
-  .titlebar{flex-wrap:wrap;gap:8px;padding:12px}
-  .app-name{font-size:13px}
-  .toolbar-right{width:100%;justify-content:flex-start;flex-wrap:wrap}
-  .t-btn{flex:1 1 160px;padding:8px 10px;font-size:12px}
-  .inner{padding:1rem}
-  .stats-row{flex-wrap:wrap;gap:10px}
-  .stat{min-width:calc(50% - 5px);padding:12px}
-  .progress{margin-bottom:1rem}
-  .table-wrap{border-radius:12px}
-  table{table-layout:auto}
-  thead th{font-size:10px;padding:8px 6px;height:auto}
-  .q-th{min-width:70px;font-size:9px}
-  .co-cell{font-size:11px;padding:0 6px}
-  .val-td{padding:6px 3px}
-  .vbtn{width:32px;height:26px;font-size:14px}
-  .add-section{gap:8px}
-  .add-group{min-width:100%}
-  .add-row{gap:6px}
-  .add-row input{padding:8px 10px;font-size:13px}
-  .counter{font-size:10px;text-align:right}
-}
-
-@media (max-width:520px) {
-  .titlebar{padding:10px}
-  .toolbar-right{justify-content:center}
-  .t-btn{flex:1 1 100%;text-align:center}
-  .stats-row{gap:6px}
-  .stat{min-width:100%;padding:10px}
-  .app-name{font-size:12px}
-  .inner{padding:0.9rem}
-  .app-window{border-radius:12px}
-}
+@media (max-width:800px){.app-bg{padding:1rem}.app-window{border-radius:14px}.titlebar{flex-wrap:wrap;gap:8px;padding:12px}.toolbar-right{width:100%;justify-content:flex-start;flex-wrap:wrap}.t-btn{flex:1 1 160px;padding:8px 10px;font-size:12px}.inner{padding:1rem}.stats-row{flex-wrap:wrap;gap:10px}.stat{min-width:calc(50% - 5px);padding:12px}.table-wrap{border-radius:12px}table{table-layout:auto}thead th{font-size:10px;padding:8px 6px;height:auto}.q-th{min-width:70px;font-size:9px}.co-cell{font-size:11px;padding:0 6px}.val-td{padding:6px 3px}.vbtn{width:32px;height:26px;font-size:14px}.add-group{min-width:100%}.add-row input{padding:8px 10px;font-size:13px}.counter{font-size:10px;text-align:right}}
+@media (max-width:520px){.titlebar{padding:10px}.toolbar-right{justify-content:center}.t-btn{flex:1 1 100%;text-align:center}.stat{min-width:100%;padding:10px}.app-name{font-size:12px}.inner{padding:0.9rem}.app-window{border-radius:12px}}
 </style>
 
 <div class="app-bg">
@@ -97,8 +69,7 @@ tbody tr:hover td{background:rgba(59,130,246,.08) !important}
       <div class="traffic"><div class="dot d-r"></div><div class="dot d-y"></div><div class="dot d-g"></div></div>
       <span class="app-name">השוואת חברות קופות וקיוסק</span>
       <div class="toolbar-right">
-        <button class="t-btn" onclick="exportToGoogleSheets()"><i class="ti ti-copy" aria-hidden="true"></i> יצא לגוגל שיטס</button>
-        <button class="t-btn" id="downloadBtn" onclick="downloadGoogleSheet()"><i class="ti ti-download" aria-hidden="true"></i> הורד קובץ</button>
+        <button class="t-btn" onclick="downloadTSV()"><i class="ti ti-download" aria-hidden="true"></i> הורד קובץ</button>
       </div>
     </div>
 
@@ -109,26 +80,23 @@ tbody tr:hover td{background:rgba(59,130,246,.08) !important}
         <div class="stat"><div class="stat-num" id="s-yes" style="color:#4ade80">0</div><div class="stat-lbl">כן ✔</div></div>
         <div class="stat"><div class="stat-num" id="s-no" style="color:#f87171">0</div><div class="stat-lbl">לא ✘</div></div>
       </div>
-
       <div class="progress"><div class="progress-fill" id="prog" style="width:0%"></div></div>
-
       <div class="table-wrap">
         <table id="tbl">
           <thead><tr id="hrow"><th>חברה</th></tr></thead>
           <tbody id="tbody"></tbody>
         </table>
       </div>
-
       <div class="add-section">
         <div class="add-group">
-          <span class="add-lbl"><i class="ti ti-building-store" style="font-size:12px;vertical-align:-1px" aria-hidden="true"></i> הוסף חברה</span>
+          <span class="add-lbl">הוסף חברה</span>
           <div class="add-row">
             <input id="newco" placeholder="שם החברה..." />
             <button class="t-btn t-btn-accent" onclick="addCompany()"><i class="ti ti-plus" aria-hidden="true"></i></button>
           </div>
         </div>
         <div class="add-group">
-          <span class="add-lbl"><i class="ti ti-help-circle" style="font-size:12px;vertical-align:-1px" aria-hidden="true"></i> הוסף שאלה</span>
+          <span class="add-lbl">הוסף שאלה</span>
           <div class="add-row">
             <input id="newq" placeholder="טקסט השאלה..." />
             <button class="t-btn t-btn-accent" onclick="addQuestion()"><i class="ti ti-plus" aria-hidden="true"></i></button>
@@ -141,7 +109,7 @@ tbody tr:hover td{background:rgba(59,130,246,.08) !important}
 </div>
 
 <script>
-// ─── PASTE YOUR DETAILS HERE ──────────────────────────────────────────────
+// ─── YOUR DETAILS ─────────────────────────────────────────────────────────
 const GITHUB_TOKEN = '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';
 const GIST_ID      = '1bbc51122f96d715afb2c952de255d9e';
 const GIST_FILE    = 'data.json';
@@ -153,20 +121,19 @@ let data={};
 let saveTimer=null;
 function k(c,q){return c+'||'+q}
 
-// ── Sync status ────────────────────────────────────────────────────────────
 function setStatus(state,text){
   let el=document.getElementById('syncStatus');
-  if(!el){el=document.createElement('span');el.id='syncStatus';el.style.cssText='font-size:11px;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;margin-left:6px';document.querySelector('.toolbar-right').prepend(el);}
+  if(!el){el=document.createElement('span');el.id='syncStatus';el.style.cssText='font-size:11px;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px';document.querySelector('.toolbar-right').prepend(el);}
   const styles={ok:'background:rgba(34,197,94,.12);border:0.5px solid rgba(34,197,94,.3);color:#4ade80',saving:'background:rgba(250,204,21,.1);border:0.5px solid rgba(250,204,21,.3);color:#fde047',err:'background:rgba(239,68,68,.1);border:0.5px solid rgba(239,68,68,.3);color:#f87171',loading:'background:rgba(99,102,241,.1);border:0.5px solid rgba(99,102,241,.3);color:#a5b4fc'};
-  el.style.cssText+= ';'+styles[state];el.textContent=text;
+  el.setAttribute('style','font-size:11px;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;'+styles[state]);
+  el.textContent=text;
 }
 
-// ── Load from Gist ─────────────────────────────────────────────────────────
 async function loadFromGist(){
-  if(!GITHUB_TOKEN||GITHUB_TOKEN==='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'){setStatus('err','הגדר טוקן');rebuild();return;}
+  if(!GITHUB_TOKEN||GITHUB_TOKEN==='PASTE_YOUR_NEW_TOKEN_HERE'){setStatus('err','הגדר טוקן');rebuild();return;}
   setStatus('loading','טוען...');
   try{
-    const res=await fetch(`https://api.github.com/gists/${GIST_ID}`,{headers:{'Authorization':`token ${GITHUB_TOKEN}`,'Accept':'application/vnd.github.v3+json'}});
+    const res=await fetch('https://api.github.com/gists/'+GIST_ID,{headers:{'Authorization':'token '+GITHUB_TOKEN,'Accept':'application/vnd.github.v3+json'}});
     if(!res.ok)throw new Error(res.status);
     const gist=await res.json();
     const file=gist.files[GIST_FILE];
@@ -180,26 +147,26 @@ async function loadFromGist(){
   }catch(e){console.error('Load failed',e);setStatus('err','שגיאת טעינה');rebuild();}
 }
 
-// ── Save to Gist (debounced 1.5s) ─────────────────────────────────────────
 function scheduleSave(){
-  if(!GITHUB_TOKEN||GITHUB_TOKEN==='PASTE_YOUR_TOKEN_HERE')return;
+  if(!GITHUB_TOKEN||GITHUB_TOKEN==='PASTE_YOUR_NEW_TOKEN_HERE')return;
   setStatus('saving','שומר...');
   clearTimeout(saveTimer);
   saveTimer=setTimeout(saveToGist,1500);
 }
+
 async function saveToGist(){
   try{
-    const res=await fetch(`https://api.github.com/gists/${GIST_ID}`,{method:'PATCH',headers:{'Authorization':`token ${GITHUB_TOKEN}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({files:{[GIST_FILE]:{content:JSON.stringify({questions,companies,data},null,2)}}})});
+    const res=await fetch('https://api.github.com/gists/'+GIST_ID,{method:'PATCH',headers:{'Authorization':'token '+GITHUB_TOKEN,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({files:{[GIST_FILE]:{content:JSON.stringify({questions,companies,data},null,2)}}})});
     if(!res.ok)throw new Error(res.status);
+    saveTimer=null;
     setStatus('ok','נשמר ✓');
   }catch(e){console.error('Save failed',e);setStatus('err','שגיאת שמירה');}
 }
 
-// ── Auto-poll every 30s for collaborator changes ───────────────────────────
 setInterval(async()=>{
-  if(!GITHUB_TOKEN||GITHUB_TOKEN==='PASTE_YOUR_TOKEN_HERE'||saveTimer)return;
+  if(!GITHUB_TOKEN||GITHUB_TOKEN==='PASTE_YOUR_NEW_TOKEN_HERE'||saveTimer)return;
   try{
-    const res=await fetch(`https://api.github.com/gists/${GIST_ID}`,{headers:{'Authorization':`token ${GITHUB_TOKEN}`,'Accept':'application/vnd.github.v3+json'}});
+    const res=await fetch('https://api.github.com/gists/'+GIST_ID,{headers:{'Authorization':'token '+GITHUB_TOKEN,'Accept':'application/vnd.github.v3+json'}});
     if(!res.ok)return;
     const gist=await res.json();
     const file=gist.files[GIST_FILE];
@@ -210,15 +177,13 @@ setInterval(async()=>{
 function getTableValues(){return [['חברה',...questions],...companies.map(c=>[c,...questions.map(q=>{const v=data[k(c,q)]||0;return v===1?'✔':v===2?'✘':''})])];}
 function formatTSV(rows){return rows.map(r=>r.join('\t')).join('\n');}
 function downloadTSV(){const text=formatTSV(getTableValues());const blob=new Blob([text],{type:'text/tab-separated-values;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='השוואת_חברות.tsv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);}
-function downloadGoogleSheet(){downloadTSV();}
 function cycle(c,q,btn){data[k(c,q)]=((data[k(c,q)]||0)+1)%3;render(c,q,btn);update();scheduleSave();}
-function render(c,q,btn){const v=data[k(c,q)]||0;if(v===1){btn.textContent='✔';btn.className='vbtn yes'}else if(v===2){btn.textContent='✘';btn.className='vbtn no'}else{btn.textContent='—';btn.className='vbtn'}}
-function buildHeader(){const h=document.getElementById('hrow');h.innerHTML='<th>חברה</th>';questions.forEach(q=>{const th=document.createElement('th');th.className='q-th';const del=document.createElement('button');del.className='del-q';del.innerHTML='✕';del.title='הסר שאלה';del.onclick=e=>{e.stopPropagation();removeQ(q)};th.textContent=q;th.appendChild(del);h.appendChild(th)})}
-function buildBody(){const tb=document.getElementById('tbody');tb.innerHTML='';companies.forEach(c=>{const tr=document.createElement('tr');const td=document.createElement('td');td.className='co-cell';const inn=document.createElement('div');inn.className='co-inner';const sp=document.createElement('span');sp.textContent=c;const del=document.createElement('button');del.className='del-co';del.textContent='✕';del.title='הסר חברה';del.onclick=()=>removeCo(c);inn.appendChild(sp);inn.appendChild(del);td.appendChild(inn);tr.appendChild(td);questions.forEach(q=>{const vtd=document.createElement('td');vtd.className='val-td';const btn=document.createElement('button');btn.className='vbtn';btn.textContent='—';btn.onclick=()=>cycle(c,q,btn);render(c,q,btn);vtd.appendChild(btn);tr.appendChild(vtd)});tb.appendChild(tr)})}
+function render(c,q,btn){const v=data[k(c,q)]||0;if(v===1){btn.textContent='✔';btn.className='vbtn yes';}else if(v===2){btn.textContent='✘';btn.className='vbtn no';}else{btn.textContent='—';btn.className='vbtn';}}
+function buildHeader(){const h=document.getElementById('hrow');h.innerHTML='<th>חברה</th>';questions.forEach(q=>{const th=document.createElement('th');th.className='q-th';const del=document.createElement('button');del.className='del-q';del.innerHTML='✕';del.title='הסר שאלה';del.onclick=e=>{e.stopPropagation();removeQ(q);};th.textContent=q;th.appendChild(del);h.appendChild(th);});}
+function buildBody(){const tb=document.getElementById('tbody');tb.innerHTML='';companies.forEach(c=>{const tr=document.createElement('tr');const td=document.createElement('td');td.className='co-cell';const inn=document.createElement('div');inn.className='co-inner';const sp=document.createElement('span');sp.textContent=c;const del=document.createElement('button');del.className='del-co';del.textContent='✕';del.title='הסר חברה';del.onclick=()=>removeCo(c);inn.appendChild(sp);inn.appendChild(del);td.appendChild(inn);tr.appendChild(td);questions.forEach(q=>{const vtd=document.createElement('td');vtd.className='val-td';const btn=document.createElement('button');btn.className='vbtn';btn.textContent='—';btn.onclick=()=>cycle(c,q,btn);render(c,q,btn);vtd.appendChild(btn);tr.appendChild(vtd);});tb.appendChild(tr);});}
 function removeQ(q){questions=questions.filter(x=>x!==q);companies.forEach(c=>delete data[k(c,q)]);rebuild();scheduleSave();}
 function removeCo(c){companies=companies.filter(x=>x!==c);questions.forEach(q=>delete data[k(c,q)]);rebuild();scheduleSave();}
-function deleteCompany(name){removeCo(name)}
-function rebuild(){buildHeader();buildBody();update()}
+function rebuild(){buildHeader();buildBody();update();}
 function addCompany(){const inp=document.getElementById('newco');const n=inp.value.trim();if(!n||companies.includes(n))return;companies.push(n);inp.value='';rebuild();scheduleSave();}
 function addQuestion(){const inp=document.getElementById('newq');const n=inp.value.trim();if(!n||questions.includes(n))return;questions.push(n);inp.value='';rebuild();scheduleSave();}
 function update(){
@@ -233,8 +198,8 @@ function update(){
   document.getElementById('prog').style.width=total?Math.round(done/total*100)+'%':'0%';
   document.getElementById('counter').textContent=total?done+' / '+total+' תאים מלאים ('+Math.round(done/total*100)+'%)':'';
 }
-function copyTSV(){const text=formatTSV(getTableValues());navigator.clipboard.writeText(text).then(()=>{const b=document.querySelector('.t-btn');b.innerHTML='<i class="ti ti-check" aria-hidden="true"></i> הועתק!';setTimeout(()=>{b.innerHTML='<i class="ti ti-copy" aria-hidden="true"></i> יצא לגוגל שיטס';},2000)})}
-document.getElementById('newco').addEventListener('keydown',e=>{if(e.key==='Enter')addCompany()});
-document.getElementById('newq').addEventListener('keydown',e=>{if(e.key==='Enter')addQuestion()});
+document.getElementById('newco').addEventListener('keydown',e=>{if(e.key==='Enter')addCompany();});
+document.getElementById('newq').addEventListener('keydown',e=>{if(e.key==='Enter')addQuestion();});
 loadFromGist();
 </script>
+</html>
